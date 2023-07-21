@@ -238,8 +238,6 @@ func checkingFileFormat(w http.ResponseWriter, data []byte) error{
 
 
 
-//сделать бота
-//поискать варианты проектов для GO
-//деплоинг бота на HEROKU
+
 
 
