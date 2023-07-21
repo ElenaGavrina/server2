@@ -188,13 +188,12 @@ func EncryptMessage(message string, key []byte) (string, error) {
 	if err != nil {
 		return "could not create new cipher", err
 	}
-	//fmt.Println("could not create new cipher")
+	
 	cipherText := make([]byte, aes.BlockSize+len(byteMsg))
 	iv := cipherText[:aes.BlockSize]
 	if _, err = io.ReadFull(rand.Reader, iv); err != nil {
 		return "could not encrypt",err
 	}
-	//return errors.New(fmt.Sprintf("No folders found by path: %v", err), nil
 
 	stream := cipher.NewCFBEncrypter(block, iv)
 	stream.XORKeyStream(cipherText[aes.BlockSize:], byteMsg)
